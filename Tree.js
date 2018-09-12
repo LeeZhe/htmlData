@@ -67,10 +67,15 @@ function BinaryTree() {
         this.pre_order(node.leftChild);
         this.pre_order(node.rightChild);
     };
-    this.post_order = function (node) {
-        if(node == null) return;
-        this.post_order(node.rightChild);
+
+
+    // 后序遍历
+    this.post_order = function(node){
+        if(node==null){
+            return;
+        }
         this.post_order(node.leftChild);
+        this.post_order(node.rightChild);
         console.log(node.data);
     };
 

@@ -55,8 +55,51 @@ var in_order_while = function(node){
 
 };
 
-//
+// 后续遍历
+var  post_order_while = function(node){
+    var cur_note = node;
+    let stack = new Stack.Stack();
+    stack.push(node);
+    var k = 0;
+    while (cur_note) {
+
+        if (cur_note.leftChild)
+        {
+            cur_note = cur_note.leftChild
+            stack.push(cur_note)
+        }
+        else {
+            if (stack.isEmpty() == false)
+            {
+                cur_note = stack.pop();
+
+                if (cur_note == node)
+                {
+                    stack.push(cur_note)
+                    k == 1
+                }
+
+
+                if (cur_note.rightChild)
+                {
+                    cur_note = cur_note.rightChild
+                    stack.push(cur_note)
+                }
+            }
+
+        }
+
+    }
+};
 
 // pre_node_while(root_node);
 // bt.in_order(root_node)
-in_order_while(root_node);
+
+// console.log('中序遍历');
+// in_order_while(root_node);
+
+// post_order_while(root_node)
+// console.log('后序遍历');
+// bt.post_order(root_node)
+// console.log('后序遍历');
+post_order_while(root_node)
